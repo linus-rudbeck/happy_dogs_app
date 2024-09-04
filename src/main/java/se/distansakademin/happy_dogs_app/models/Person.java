@@ -1,7 +1,10 @@
 package se.distansakademin.happy_dogs_app.models;
 
+
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Entity
 @Getter
@@ -9,7 +12,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Dog {
+public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -17,11 +20,7 @@ public class Dog {
 
     private String name;
 
-    private String breed;
-
-    private String imageUrl;
-
-    @ManyToOne
-    private Person owner;
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
+    private List<Dog> dogs;
 
 }

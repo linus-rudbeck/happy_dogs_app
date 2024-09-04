@@ -51,4 +51,13 @@ public class DogService {
         }
     }
 
+    public boolean deleteById(String id){
+        try{
+            repository.deleteById(id);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+    }
+
 }
